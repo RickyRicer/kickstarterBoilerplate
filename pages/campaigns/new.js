@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+import Layout from '../../components/Layout';
 
 const CampaignNew = (props) => {
   return(
-     <h1>New Campaign!</h1>
+    <Layout>
+    <h1>New Campaign!</h1>
+    </Layout>
   )
 }
 
