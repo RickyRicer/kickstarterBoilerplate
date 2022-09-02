@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Campaign from '../../ethereum/Campaign';
+import web3 from '../../ethereum/web3';
 
 class CampaignShow extends Component {
   static async getInitialProps(props) {
@@ -35,6 +36,26 @@ class CampaignShow extends Component {
           'The manager created this campaign and can create requests to withdraw money',
         style: { overflowWrap: 'break-word' }
       },
+      {
+        header: minimumContribution,
+        meta: 'Minimum Contribution (Wei)',
+        description: 'You must contribute at least this much wei to be an approver'
+      },
+      {
+        header: requestsCount,
+        meta: 'Number of Requests',
+        description: 'A request tries to withdraw money from the contract. Requests must be approved by approvers'
+      },
+      {
+        header: approversCount,
+        meta: 'Number of Approvers',
+        description: 'Number of people who ahve already donated to this campaign'
+      },
+      { 
+        header: web3.utils.fromWei(balance, 'ether'),
+        meta: 'Campaign Balance (Ether)',
+        description: 'The balance is how much money this campaign has to spend'
+      }
     ];
 
     return <Card.Group items={items} />;
