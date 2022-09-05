@@ -22,11 +22,12 @@ class RequestIndex extends Component {
     return { address, requests, requestCount };
   }
 
-  renderRow() {
+  renderRows() {
     return this.props.requests.map((request, index) => {
       return (
         <RequestRow
           key={index}
+          id={index}
           request={request}
           address={this.props.address}
         />
@@ -57,7 +58,7 @@ class RequestIndex extends Component {
               <HeaderCell>Finalize</HeaderCell>
             </Row>
           </Header>
-          <Body>{this.renderRow()}</Body>
+          <Body>{this.renderRows()}</Body>
         </Table>
       </Layout>
     );
